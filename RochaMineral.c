@@ -3,14 +3,13 @@
 #include <string.h>
 
 
-void InicializaRocha(RochaMineral* Rocha, double Peso, ListaMinerais* ListaMin, double Latitude, double Longitude, char* DataC){
+void InicializaRocha(RochaMineral* Rocha, double Peso, ListaMinerais* ListaMin, double Latitude, double Longitude){
     
     ClassificaRocha(Rocha, ListaMin);
 
     setPesoRocha(Rocha, Peso);
     setLatitude(Rocha, Latitude);
     setLongitude(Rocha, Longitude);
-    setData(Rocha, DataC);
 
 }
 
@@ -125,11 +124,4 @@ void setLongitude(RochaMineral *Rocha, double Longitude){
 }
 double getLongitude(RochaMineral *Rocha){
     return(Rocha->Longitude);
-}
-
-void setData(RochaMineral *Rocha, char* DataC){
-    strcpy(Rocha->DataC, DataC);
-}
-char* getData(RochaMineral *Rocha){
-    return(Rocha->DataC);
 }

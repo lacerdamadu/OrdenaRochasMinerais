@@ -1,33 +1,22 @@
 #ifndef COMPARTIMENTO_H_
 #define COMPARTIMENTO_H_
 #include "RochaMineral.h"
+#define TamMax 10000
 
-typedef struct Celula{
-    RochaMineral rocha;
-    struct Celula* pProx;
-} Celula;
 
-typedef struct Compartimento{
-    double PesoMax;
-    Celula* primeiro;
-    Celula* ultimo;
+typedef struct {
+
+ RochaMineral ListaRochas[TamMax];
+ int Primeiro, Ultimo;
+
 } Compartimento;
 
-void CriaListaRocha(Compartimento *lista, double PesoMax);//Cria uma Lista de Rocha Mineral Vazia
 
-int TamanhoListaRocha(Compartimento *lista);//Retorna o numero(int) de Rochas armazenadas no compartimento
+void CriaListaRocha(Compartimento *ListaR);//Cria uma Lista de Rocha Mineral Vazia
 
-int VerificaListaVazia(Compartimento *lista);//Verifica se a Lista esta vazia
+void ImprimeComp(Compartimento *lista);//Exibe todo o conteudo do compartimento
 
-void ImprimiLista(Compartimento *lista);//Exibe todo o conteudo do compartimento
-
-double PesoAtual(Compartimento *lista);//Retorna o peso total do compartimento/lista
-
-int TrocaRocha(Compartimento *lista, RochaMineral *rocha);//Adiciona uma rocha mais leve no lugar da rocha mais pesada do mesmo tipo
-
-int InsereRocha(Compartimento *lista, Celula* rocha, double PesoMax);//Insere uma rocha encontrada no final da lista, seguindo as regras
-
-Celula* RemoveRocha(Compartimento *lista, Celula* rocha);//Remove a rocha de acordo com a categoria(nome)
+int InsereRocha(Compartimento *lista, RochaMineral* NovaRocha);//Insere uma rocha encontrada no final da lista, seguindo as regras
 
 
 #endif

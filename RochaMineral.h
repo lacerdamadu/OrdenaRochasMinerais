@@ -1,6 +1,5 @@
 #ifndef ROCHAMINERAL_H_INCLUDED
 #define ROCHAMINERAL_H_INCLUDED
-#define Data 11
 #include "ListaMinerais.h"
 
 typedef struct{
@@ -9,11 +8,10 @@ typedef struct{
     char Categoria[max_tam];
     ListaMinerais ListaM;
     double Latitude, Longitude;
-    char DataC[Data];
 } RochaMineral;
 
 
-void InicializaRocha(RochaMineral* rocha, double Peso, ListaMinerais* ListaMin, double Latitude, double Longitude, char* data);
+void InicializaRocha(RochaMineral* rocha, double Peso, ListaMinerais* ListaMin, double Latitude, double Longitude);
 
 void ClassificaRocha(RochaMineral *Rocha, ListaMinerais *ListaMin);
 
@@ -27,9 +25,5 @@ double getLatitude(RochaMineral *Rocha);
 
 void setLongitude(RochaMineral *Rocha, double Longitude);
 double getLongitude(RochaMineral *Rocha);
-
-
-void setData(RochaMineral *Rocha, char* DataC);
-char* getData(RochaMineral *Rocha);
 
 #endif // ROCHAMINERAL_H_INCLUDED
