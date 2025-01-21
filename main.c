@@ -5,7 +5,13 @@
 
 int main(){
 
+    printf("oi");
+
     Compartimento Comp;
+
+    CriaListaRocha(&Comp);
+    
+
     int quant;
 
     printf("Digita quantas:\n");
@@ -52,4 +58,6 @@ int main(){
     }
 
     ImprimeComp(&Comp);
+
+    return 1;
 }
