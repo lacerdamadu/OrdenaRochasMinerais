@@ -6,7 +6,7 @@
 
 typedef struct {
 
- RochaMineral ListaRochas[TamMax];
+ RochaMineral* ListaRochas;
  int Primeiro, Ultimo;
 
 } Compartimento;

@@ -8,6 +8,7 @@ int main(){
     Compartimento Comp;
 
     CriaListaRocha(&Comp);
+    CentralOrdena(&Comp);
     
     return 1;
 }

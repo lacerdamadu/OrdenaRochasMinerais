@@ -7,6 +7,7 @@
 void CriaListaRocha(Compartimento* ListaR){
     ListaR->Primeiro = InicioArranjo;
     ListaR->Ultimo = ListaR->Primeiro;
+    ListaR->ListaRochas = (RochaMineral*) malloc(sizeof(RochaMineral)*10000);
 }
 
 int VerificaListaVazia(Compartimento *ListaR){
@@ -26,14 +27,18 @@ int InsereRocha(Compartimento *ListaR, RochaMineral* NovaRocha){
 }
 
 void Insercao(Compartimento* lista, int tamanho){
-    int i,j;
+    int i = 0;
+    int j = 0;
 
     RochaMineral aux;
+    printf("%d", tamanho);
     
     for (i = 1; i < tamanho; i++){
+        printf("%d\n", i);
         aux = lista->ListaRochas[i];
+        printf("%d\n", j);
         j = i - 1;
-        while ( ( j >= 0 ) && ( aux.Peso < lista[j].ListaRochas->Peso)){
+        while ( ( j >= 0 ) && ( aux.Peso < lista->ListaRochas[j].Peso)){
             lista[j + 1] = lista[j];
             j--;
         }
@@ -59,19 +64,19 @@ void Particao(int Esq, int Dir,int *i, int *j, Compartimento *lista){
     *i = Esq; *j = Dir;
     pivo = lista->ListaRochas[(*i + *j)/2]; 
 
-    do
-    {
-        while (pivo.Peso > lista[*i].ListaRochas->Peso){
+    do{
+        while (pivo.Peso > lista->ListaRochas[*i].Peso){
             (*i)++;
         } 
-        while (pivo.Peso < lista[*j].ListaRochas->Peso){
+        while (pivo.Peso < lista->ListaRochas[*j].Peso){
             (*j)--;
         }
         if (*i <= *j){
             aux = lista->ListaRochas[*i]; 
             lista->ListaRochas[*i] = lista->ListaRochas[*j];
             lista->ListaRochas[*j] = aux;
-            (*i)++; (*j)--;
+            (*i)++; 
+            (*j)--;
         }
-        } while (*i <= *j);
+    } while (*i <= *j);
 }
