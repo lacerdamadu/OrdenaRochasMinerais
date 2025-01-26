@@ -38,7 +38,7 @@ int InsereRocha(Compartimento *ListaR, RochaMineral* NovaRocha){
 }
 
 void Insercao(Compartimento* lista, int tamanho, int *movimentações, int* comparações){
-    int i, j;
+      int i, j;
 
     RochaMineral aux;
     for (i = 1; i < tamanho; i++){
@@ -62,21 +62,19 @@ void Ordena(int Esq, int Dir, Compartimento *lista, int *movimentacoes, int *com
     int i,j;
     Particao(Esq, Dir, &i, &j, lista->ListaRochas, movimentacoes, comparacoes);
 
+    *comparacoes += 1;
     if (Esq < j){
-        *comparacoes += 1;
         Ordena(Esq, j, lista, movimentacoes, comparacoes);
     } 
+    *comparacoes += 1;
     if (i < Dir) {
-        *comparacoes += 1;
         Ordena(i, Dir, lista, movimentacoes, comparacoes);
     }
 }
 void Particao(int Esq, int Dir,int *i, int *j, RochaMineral* rocha, int *movimentacoes, int *comparacoes){
-    
     RochaMineral pivo, aux;
     *i = Esq; *j = Dir;
     pivo = rocha[(*i + *j)/2]; 
-
     do{
         while (pivo.Peso > rocha[*i].Peso){
             *comparacoes += 1;
@@ -86,8 +84,8 @@ void Particao(int Esq, int Dir,int *i, int *j, RochaMineral* rocha, int *movimen
             *comparacoes += 1;
             (*j)--;
         }
+        *comparacoes += 1;
         if (*i <= *j){
-            *comparacoes += 1;
             *movimentacoes += 1;
 
             aux = rocha[*i]; 
