@@ -44,6 +44,7 @@ void Insercao(Compartimento* lista, int tamanho, int *movimentacoes, int* compar
     for (i = 1; i < tamanho; i++){
         aux = lista->ListaRochas[i];
         j = i - 1;
+        
         while ( ( j >= 0 ) && ( aux.Peso < lista->ListaRochas[j].Peso)){
             *comparacoes += 2;
             *movimentacoes += 1;

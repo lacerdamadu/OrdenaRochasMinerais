@@ -6,12 +6,12 @@
 #include "Central.h"
 int CentralOrdena(Compartimento *lista){
     printf("Bem vindo ao Sistema de Ordenacao de Rochas Minerais\n"
-    "Para realizar a ordenação nosso sistema possui duas opcoes de algoritmos\n"
+    "Para realizar a ordenacao nosso sistema possui duas opcoes de algoritmos\n"
     "(1) O algoritmo de ordenacao simples denominado Insercao\n"
     "(2) O algoritmo de ordenacao sofisticado denominado QuickSort\n\n");
 
     int escolha;
-    printf("Digite o número correspondente ao algoritmo de sua escolha:");
+    printf("Digite o numero correspondente ao algoritmo de sua escolha: ");
     scanf("%d", &escolha);
 
     if(!(escolha == 1 || escolha == 2)) {
