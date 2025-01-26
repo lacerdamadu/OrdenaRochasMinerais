@@ -37,7 +37,7 @@ int InsereRocha(Compartimento *ListaR, RochaMineral* NovaRocha){
     return 1;
 }
 
-void Insercao(Compartimento* lista, int tamanho, int *movimentações, int* comparações){
+void Insercao(Compartimento* lista, int tamanho, int *movimentacoes, int* comparacoes){
       int i, j;
 
     RochaMineral aux;
@@ -45,12 +45,12 @@ void Insercao(Compartimento* lista, int tamanho, int *movimentações, int* comp
         aux = lista->ListaRochas[i];
         j = i - 1;
         while ( ( j >= 0 ) && ( aux.Peso < lista->ListaRochas[j].Peso)){
-            *comparações += 2;
-            *movimentações += 1;
+            *comparacoes += 2;
+            *movimentacoes += 1;
             lista->ListaRochas[j + 1] = lista->ListaRochas[j];
             j--;
         }
-        *movimentações += 1;
+        *movimentacoes += 1;
         lista->ListaRochas[j + 1]= aux;
     }
 }

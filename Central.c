@@ -14,6 +14,11 @@ int CentralOrdena(Compartimento *lista){
     printf("Digite o número correspondente ao algoritmo de sua escolha:");
     scanf("%d", &escolha);
 
+    if(!(escolha == 1 || escolha == 2)) {
+        printf("\nAlgoritmo de ordenacao invalido!\nTente novamente.\n\n");
+        CentralOrdena(lista);
+    }
+
     char nome[STRING];
     printf("Digite o nome do arquivo de entrada: ");
     scanf("%s", nome);
@@ -112,7 +117,7 @@ int CentralOrdena(Compartimento *lista){
         fim = clock();
         tempo = (fim - inicio) * 1000.0 / CLOCKS_PER_SEC;
     }
-    if(escolha == 2){
+    else if(escolha == 2){
         inicio = clock();
         QuickSort(lista, tamanho, &movimentacoes, &comparacoes);
         fim = clock();
